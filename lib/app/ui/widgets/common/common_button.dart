@@ -22,21 +22,21 @@ class CommonButton extends StatelessWidget {
       onTap: onPressed,
       child: Container(
         width: isWidth == true ? width : MediaQuery.of(context).size.width - 40,
-        margin: const EdgeInsets.all(15.0),
+        margin: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 10),
         height: 50,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(50.0),
           color: AppColors.primary,
-          gradient: const LinearGradient(
-              colors: [AppColors.primary, AppColors.secondary],
-              begin: Alignment.topRight,
-              end: Alignment.topLeft),
+          // gradient: const LinearGradient(
+          //     colors: [AppColors.primary, AppColors.secondary],
+          //     begin: Alignment.topRight,
+          //     end: Alignment.topLeft),
         ),
         child: Center(
           child: CommonText(
             text: text,
             fontColor: AppColors.white,
-            fontSize: 20,
+            fontSize: 18,
             fontWeight: FontWeight.bold,
             letterSpacing: 1,
           ),

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../themes/colors.dart';
 
-
 class CommonTextFormField extends StatefulWidget {
   const CommonTextFormField(
       {Key? key,
@@ -13,7 +12,8 @@ class CommonTextFormField extends StatefulWidget {
       this.maxLength,
       this.errorText,
       this.prefixIcon,
-      this.enableBorderSide = false})
+      this.enableBorderSide = false,
+      this.keyboardtype})
       : super(key: key);
   final String hintText;
   final String? errorText;
@@ -23,6 +23,7 @@ class CommonTextFormField extends StatefulWidget {
   final bool? enableBorderSide;
   final int? maxLength;
   final IconData? prefixIcon;
+  final TextInputType? keyboardtype;
 
   @override
   State<CommonTextFormField> createState() => _CommonTextFormFieldState();
@@ -33,45 +34,52 @@ class _CommonTextFormFieldState extends State<CommonTextFormField> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: TextFormField(
-        style: const TextStyle(
-          fontFamily: "Oswald",
-          fontSize: 14,
+      child: Container(
+        decoration:
+            BoxDecoration(borderRadius: BorderRadius.circular(8), boxShadow: [
+          BoxShadow(color: Colors.grey.shade300, spreadRadius: 1, blurRadius: 1)
+        ]),
+        child: TextFormField(
+          keyboardType: widget.keyboardtype,
+          style: const TextStyle(
+            fontFamily: "Poppins",
+            fontSize: 14,
+          ),
+          validator: widget.validator,
+          cursorColor: AppColors.primary,
+          controller: widget.controller,
+          maxLength: widget.maxLength,
+          maxLines: 1,
+          obscuringCharacter: "*",
+          obscureText: widget.obscureText == true ? !passwordVisible : false,
+          decoration: InputDecoration(
+              filled: true,
+              fillColor: AppColors.white,
+              hintText: widget.hintText,
+              errorText: widget.errorText,
+              hintStyle: const TextStyle(fontFamily: "Poppins"),
+              counterText: "",
+              contentPadding: const EdgeInsets.only(left: 15),
+              border: OutlineInputBorder(
+                borderSide: widget.enableBorderSide == true
+                    ? BorderSide(
+                        color: AppColors.primary.withOpacity(.2),
+                      )
+                    : BorderSide.none,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                    color: AppColors.primary.withOpacity(.5), width: 2),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              errorBorder: OutlineInputBorder(
+                borderSide: const BorderSide(color: AppColors.red, width: 1),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              suffixIcon: showPassword(),
+              prefixIcon: Icon(widget.prefixIcon)),
         ),
-        validator: widget.validator,
-        cursorColor: AppColors.primary,
-        controller: widget.controller,
-        maxLength: widget.maxLength,
-        maxLines: 1,
-        obscuringCharacter: "*",
-        obscureText: widget.obscureText == true ? !passwordVisible : false,
-        decoration: InputDecoration(
-            filled: true,
-            fillColor: AppColors.white,
-            hintText: widget.hintText,
-            errorText: widget.errorText,
-            hintStyle: const TextStyle(fontFamily: "Oswald"),
-            counterText: "",
-            contentPadding: const EdgeInsets.only(left: 15),
-            border: OutlineInputBorder(
-              borderSide: widget.enableBorderSide == true
-                  ? BorderSide(
-                      color: AppColors.primary.withOpacity(.2),
-                    )
-                  : BorderSide.none,
-              borderRadius: BorderRadius.circular(8),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                  color: AppColors.primary.withOpacity(.5), width: 2),
-              borderRadius: BorderRadius.circular(8),
-            ),
-            errorBorder: OutlineInputBorder(
-              borderSide: const BorderSide(color: AppColors.red, width: 1),
-              borderRadius: BorderRadius.circular(8),
-            ),
-            suffixIcon: showPassword(),
-            prefixIcon: Icon(widget.prefixIcon)),
       ),
     );
   }

@@ -1,10 +1,19 @@
+import 'package:employee_management/app/config/config.dart';
+import 'package:employee_management/app/services/attendance_service.dart';
+import 'package:employee_management/app/services/auth_service.dart';
+import 'package:employee_management/app/services/db_service.dart';
+import 'package:employee_management/app/ui/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:get/get.dart';
-import 'app/routes/app_routes.dart';
+import 'package:provider/provider.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+import 'app/ui/screens/login_screen.dart';
 import 'app/ui/themes/colors.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Supabase.initialize(
+      url: AppConfig.SupaBase_URL, anonKey: AppConfig.SupaBase_KEY);
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     systemNavigationBarColor: Colors.black, // navigation bar color
     statusBarColor: AppColors.primary, // status bar color
@@ -17,10 +26,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      getPages: AppRoutes.routes,
-      initialRoute: "/",
-      debugShowCheckedModeBanner: false,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => AuthService()),
+        ChangeNotifierProvider(create: (context) => DbService()),
+        ChangeNotifierProvider(create: (context) => AttendanceService()
+        ),
+      ],
+      child: MaterialApp(
+        title: 'Employee Attendance',
+        debugShowCheckedModeBanner: false,
+        home: SplashScreen(),
+      ),
     );
   }
 }

@@ -7,7 +7,7 @@ class CommonText extends StatelessWidget {
   const CommonText(
       {Key? key,
       required this.text,
-      this.fontSize = 16,
+      this.fontSize = 14,
       this.fontColor = AppColors.black,
       this.fontWeight,
       this.letterSpacing,
@@ -32,10 +32,10 @@ class CommonText extends StatelessWidget {
       text,
       textAlign: textAlign,
       style: TextStyle(
-          fontSize: media.width * fontSize,
+          fontSize:  fontSize,
           fontWeight: fontWeight,
           color: isForeground == true ? null : fontColor,
-          fontFamily: "Oswald",
+          fontFamily: "Poppins",
           foreground: foreground,
           letterSpacing: letterSpacing),
     );
