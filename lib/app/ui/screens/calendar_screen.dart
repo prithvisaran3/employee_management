@@ -1,7 +1,6 @@
 import 'package:employee_management/app/model/attendance_model.dart';
 import 'package:employee_management/app/services/attendance_service.dart';
 import 'package:employee_management/app/ui/themes/colors.dart';
-import 'package:employee_management/app/ui/widgets/common/common_button.dart';
 import 'package:employee_management/app/ui/widgets/common/common_text.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -25,7 +24,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
       children: [
         Container(
           alignment: Alignment.centerLeft,
-          margin: EdgeInsets.only(left: 20, top: 60, bottom: 10),
+          margin: const EdgeInsets.only(left: 20, top: 60, bottom: 10),
           child: const CommonText(
             text: "My Attendance",
             fontSize: 25,
@@ -49,7 +48,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
                     DateFormat("MMMM yyyy").format(selectedDate);
                 attendanceService.attendanceHistoryMonth = pickedMonth;
               },
-              child: CommonText(
+              child: const CommonText(
                 text: "Pick a month",
                 fontColor: AppColors.primary,
               ),
@@ -146,7 +145,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
                               ],
                             ),
                           ),
-                          SizedBox(width: 15),
+                          const SizedBox(width: 15),
                         ],
                       ),
                     );
@@ -161,7 +160,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
                 );
               }
             }
-            return LinearProgressIndicator(
+            return const LinearProgressIndicator(
               backgroundColor: Colors.white,
               color: Colors.grey,
             );

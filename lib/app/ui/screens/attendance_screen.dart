@@ -30,7 +30,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
     final attendanceService = Provider.of<AttendanceService>(context);
     return Scaffold(
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: Column(
           children: [
             welcomeSection(),
@@ -45,7 +45,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
 
   Widget slideButton(AttendanceService attendanceService) {
     return Container(
-      margin: EdgeInsets.only(top: 25),
+      margin: const EdgeInsets.only(top: 25),
       child: Builder(
         builder: (context) {
           return SlideAction(
@@ -182,8 +182,8 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
       children: [
         Container(
           alignment: Alignment.centerLeft,
-          margin: EdgeInsets.only(top: 32),
-          child: CommonText(
+          margin: const EdgeInsets.only(top: 32),
+          child: const CommonText(
             text: 'Welcome',
             fontColor: Colors.black54,
             fontSize: 30,
@@ -201,13 +201,13 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                     alignment: Alignment.centerLeft,
                     child: CommonText(
                       text: user.name != ''
-                          ? '${user.name}'
+                          ? user.name
                           : "#${user.employeeId}",
                       fontSize: 25,
                     ),
                   );
                 }
-                return SizedBox(
+                return const SizedBox(
                   width: 60,
                   child: LinearProgressIndicator(),
                 );

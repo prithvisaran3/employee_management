@@ -35,10 +35,16 @@ class _CommonTextFormFieldState extends State<CommonTextFormField> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        decoration:
-            BoxDecoration(borderRadius: BorderRadius.circular(8), boxShadow: [
-          BoxShadow(color: Colors.grey.shade300, spreadRadius: 1, blurRadius: 1)
-        ]),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.shade300,
+              spreadRadius: 1,
+              blurRadius: 1,
+            )
+          ],
+        ),
         child: TextFormField(
           keyboardType: widget.keyboardtype,
           style: const TextStyle(
@@ -59,7 +65,7 @@ class _CommonTextFormFieldState extends State<CommonTextFormField> {
               errorText: widget.errorText,
               hintStyle: const TextStyle(fontFamily: "Poppins"),
               counterText: "",
-              contentPadding: const EdgeInsets.only(left: 15),
+              contentPadding: const EdgeInsets.only(left: 5),
               border: OutlineInputBorder(
                 borderSide: widget.enableBorderSide == true
                     ? BorderSide(

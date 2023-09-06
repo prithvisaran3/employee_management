@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'app/ui/screens/login_screen.dart';
 import 'app/ui/themes/colors.dart';
 
 void main() async {
@@ -30,10 +29,9 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) => AuthService()),
         ChangeNotifierProvider(create: (context) => DbService()),
-        ChangeNotifierProvider(create: (context) => AttendanceService()
-        ),
+        ChangeNotifierProvider(create: (context) => AttendanceService()),
       ],
-      child: MaterialApp(
+      child: const MaterialApp(
         title: 'Employee Attendance',
         debugShowCheckedModeBanner: false,
         home: SplashScreen(),

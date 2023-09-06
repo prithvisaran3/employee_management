@@ -22,7 +22,7 @@ class CommonButton extends StatelessWidget {
       onTap: onPressed,
       child: Container(
         width: isWidth == true ? width : MediaQuery.of(context).size.width - 40,
-        margin: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 10),
+        margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
         height: 50,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(50.0),

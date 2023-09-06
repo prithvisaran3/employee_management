@@ -26,11 +26,11 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       bottomNavigationBar: Container(
         height: 70,
-        margin: EdgeInsets.only(left: 12, right: 12, bottom: 24),
+        margin: const EdgeInsets.only(left: 12, right: 12, bottom: 24),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(40),
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               color: Colors.black26,
               blurRadius: 10,
@@ -67,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: IndexedStack(
         index: currentIndex,
-        children: [
+        children: const [
           CalendarScreen(),
           AttendanceScreen(),
           ProfileScreen(),

@@ -30,13 +30,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
             Container(
               height: screenHeight / 3,
               width: screenWidth,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: AppColors.primary,
                 borderRadius: BorderRadius.only(
                   bottomRight: Radius.circular(70),
                 ),
               ),
-              child: Column(
+              child: const Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(
@@ -55,9 +55,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ],
               ),
             ),
-            SizedBox(height: 50),
+            const SizedBox(height: 50),
             Padding(
-              padding: EdgeInsets.all(20),
+              padding: const EdgeInsets.all(20),
               child: Column(
                 children: [
                   CommonTextFormField(
@@ -73,11 +73,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     hintText: "Employee Password",
                     controller: _passwordController,
                   ),
-                  SizedBox(height: 30),
+                  const SizedBox(height: 30),
                   Consumer<AuthService>(
                     builder: (context, authServiceProvider, child) {
                       return authServiceProvider.isLoading == true
-                          ? Center(
+                          ? const Center(
                               child: CircularProgressIndicator(),
                             )
                           : CommonButton(
@@ -100,7 +100,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                       );
                     },
-                    child: CommonText(
+                    child: const CommonText(
                       text: 'Already have an account? Login',
                     ),
                   ),

@@ -14,6 +14,6 @@ class SplashScreen extends StatelessWidget {
 
     // authService.signOut();
 
-    return authService.currentUser == null ? LoginScreen() : HomeScreen();
+    return authService.currentUser == null ? const LoginScreen() : const HomeScreen();
   }
 }
