@@ -4,13 +4,18 @@ class AttendanceModel {
   final String check_in;
   final String? check_out;
   final DateTime createdAt;
+  final Map? checkInLocation;
+  final Map? checkOutLocation;
 
-  AttendanceModel(
-      {required this.id,
-      required this.date,
-      required this.check_in,
-      this.check_out,
-      required this.createdAt});
+  AttendanceModel({
+    required this.id,
+    required this.date,
+    required this.check_in,
+    this.check_out,
+    required this.createdAt,
+    this.checkInLocation,
+    this.checkOutLocation,
+  });
 
   factory AttendanceModel.fromJson(Map<String, dynamic> data) {
     return AttendanceModel(
@@ -18,6 +23,8 @@ class AttendanceModel {
         date: data['date'],
         check_in: data['check_in'],
         check_out: data['check_out'],
-        createdAt: DateTime.parse(data['created_at']));
+        createdAt: DateTime.parse(data['created_at']),
+        checkInLocation: data['check_in_location'],
+        checkOutLocation: data['check_out_locaton']);
   }
 }
